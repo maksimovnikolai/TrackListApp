@@ -12,6 +12,7 @@
 		AD049FC02B4092E300C7226B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD049FBF2B4092E300C7226B /* Assets.xcassets */; };
 		AD049FC32B4092E300C7226B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD049FC12B4092E300C7226B /* LaunchScreen.storyboard */; };
 		AD049FCF2B40947800C7226B /* TrackListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD049FCE2B40947800C7226B /* TrackListViewController.swift */; };
+		AD049FD22B4095F200C7226B /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD049FD12B4095F200C7226B /* Track.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		AD049FC22B4092E300C7226B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AD049FC42B4092E300C7226B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD049FCE2B40947800C7226B /* TrackListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackListViewController.swift; sourceTree = "<group>"; };
+		AD049FD12B4095F200C7226B /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				AD049FCA2B4093C100C7226B /* Application */,
+				AD049FD02B4095DD00C7226B /* Model */,
 				AD049FCC2B40940D00C7226B /* Controllers */,
 				AD049FCB2B4093E100C7226B /* Resources */,
 				AD049FCD2B40942100C7226B /* SupportingFiles */,
@@ -94,6 +97,14 @@
 				AD049FC42B4092E300C7226B /* Info.plist */,
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		AD049FD02B4095DD00C7226B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AD049FD12B4095F200C7226B /* Track.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,6 +180,7 @@
 				AD049FB72B4092E100C7226B /* AppDelegate.swift in Sources */,
 				AD049FB92B4092E100C7226B /* SceneDelegate.swift in Sources */,
 				AD049FCF2B40947800C7226B /* TrackListViewController.swift in Sources */,
+				AD049FD22B4095F200C7226B /* Track.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
