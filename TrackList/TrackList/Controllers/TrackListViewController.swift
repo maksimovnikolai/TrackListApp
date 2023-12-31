@@ -29,14 +29,26 @@ extension TrackListViewController {
         view.addSubview(tableView)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "track")
         setupConstraints()
+        setupEditButton()
     }
     
     private func makeTableView() -> UITableView {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.rowHeight = 80
         return tableView
+    }
+    
+    private func setupEditButton() {
+        let title = tableView.isEditing ? "Done" : "Edit"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: title, style: .plain, target: self, action: #selector(isEdit))
+    }
+    
+    @objc
+    private func isEdit() {
+        tableView.isEditing.toggle()
     }
 }
 
@@ -57,6 +69,27 @@ extension TrackListViewController: UITableViewDataSource {
         content.imageProperties.cornerRadius = tableView.rowHeight / 2
         cell.contentConfiguration = content
         return cell
+    }
+}
+
+// MARK: - UITableViewDelegate
+extension TrackListViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        .none
+    }
+    
+    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        false
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let track = trackList.remove(at: sourceIndexPath.row)
+        trackList.insert(track, at: destinationIndexPath.row)
     }
 }
 
