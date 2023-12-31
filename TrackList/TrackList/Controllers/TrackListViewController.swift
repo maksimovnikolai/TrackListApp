@@ -9,9 +9,11 @@ import UIKit
 
 final class TrackListViewController: UIViewController {
     
-    
+    // MARK: Private properties
     private lazy var tableView = makeTableView()
+    private var trackList = Track.getTrackList()
     
+    // MARK: Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         commonInit()
@@ -42,11 +44,18 @@ extension TrackListViewController {
 extension TrackListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        3
+        trackList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "track", for: indexPath)
+        let track = trackList[indexPath.row]
+        var content = cell.defaultContentConfiguration()
+        content.text = track.song
+        content.secondaryText = track.artist
+        content.image = UIImage(named: track.title)
+        content.imageProperties.cornerRadius = tableView.rowHeight / 2
+        cell.contentConfiguration = content
         return cell
     }
 }
