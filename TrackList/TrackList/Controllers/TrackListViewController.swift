@@ -75,13 +75,11 @@ extension TrackListViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension TrackListViewController: UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        let detailVC = TrackDetailsViewController()
-        navigationController?.pushViewController(detailVC, animated: true)
-    }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let currentTrack = trackList[indexPath.row]
+        let detailsVC = TrackDetailsViewController()
+        detailsVC.track = currentTrack
+        navigationController?.pushViewController(detailsVC, animated: true)
     }
     
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
