@@ -16,17 +16,25 @@ final class TrackDetailsViewController: UIViewController {
         return imageView
     }()
     
+    private lazy var trackTitleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Title label"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .red
-        setupConstraints()
+        setupConstraintsForImageView()
+        setupConstraintsForTitleLabel()
     }
 }
 
 // MARK: - Constraints
 extension TrackDetailsViewController {
     
-    private func setupConstraints() {
+    private func setupConstraintsForImageView() {
         view.addSubview(coverImage)
         NSLayoutConstraint.activate([
             coverImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
@@ -35,5 +43,12 @@ extension TrackDetailsViewController {
             coverImage.heightAnchor.constraint(equalToConstant: 330)
         ])
     }
-
+    
+    private func setupConstraintsForTitleLabel() {
+        view.addSubview(trackTitleLabel)
+        NSLayoutConstraint.activate([
+            trackTitleLabel.topAnchor.constraint(equalTo: coverImage.bottomAnchor, constant: 5),
+            trackTitleLabel.leadingAnchor.constraint(equalTo: coverImage.leadingAnchor),
+        ])
+    }
 }
