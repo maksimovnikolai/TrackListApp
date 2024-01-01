@@ -75,6 +75,11 @@ extension TrackListViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension TrackListViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        let detailVC = TrackDetailsViewController()
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
@@ -105,5 +110,3 @@ extension TrackListViewController {
         ])
     }
 }
-
-

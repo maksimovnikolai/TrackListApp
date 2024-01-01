@@ -13,6 +13,7 @@
 		AD049FC32B4092E300C7226B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD049FC12B4092E300C7226B /* LaunchScreen.storyboard */; };
 		AD049FCF2B40947800C7226B /* TrackListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD049FCE2B40947800C7226B /* TrackListViewController.swift */; };
 		AD049FD22B4095F200C7226B /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD049FD12B4095F200C7226B /* Track.swift */; };
+		AD049FD42B42CED100C7226B /* TrackDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD049FD32B42CED100C7226B /* TrackDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		AD049FC42B4092E300C7226B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD049FCE2B40947800C7226B /* TrackListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackListViewController.swift; sourceTree = "<group>"; };
 		AD049FD12B4095F200C7226B /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		AD049FD32B42CED100C7226B /* TrackDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				AD049FCE2B40947800C7226B /* TrackListViewController.swift */,
+				AD049FD32B42CED100C7226B /* TrackDetailsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -179,6 +182,7 @@
 			files = (
 				AD049FB72B4092E100C7226B /* AppDelegate.swift in Sources */,
 				AD049FB92B4092E100C7226B /* SceneDelegate.swift in Sources */,
+				AD049FD42B42CED100C7226B /* TrackDetailsViewController.swift in Sources */,
 				AD049FCF2B40947800C7226B /* TrackListViewController.swift in Sources */,
 				AD049FD22B4095F200C7226B /* Track.swift in Sources */,
 			);
