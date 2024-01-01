@@ -9,6 +9,8 @@ import UIKit
 
 final class TrackDetailsViewController: UIViewController {
     
+    var track: Track!
+    
     private lazy var coverImage: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -25,9 +27,15 @@ final class TrackDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
+        view.backgroundColor = .systemBackground
         setupConstraintsForImageView()
         setupConstraintsForTitleLabel()
+        updateUI()
+    }
+    
+    private func updateUI() {
+        coverImage.image = UIImage(named: track.title)
+        trackTitleLabel.text = track.title
     }
 }
 
