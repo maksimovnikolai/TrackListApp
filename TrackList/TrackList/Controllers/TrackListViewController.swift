@@ -43,12 +43,16 @@ extension TrackListViewController {
     
     private func setupEditButton() {
         let title = tableView.isEditing ? "Done" : "Edit"
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: title, style: .plain, target: self, action: #selector(isEdit))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: title,
+                                                           style: .plain,
+                                                           target: self,
+                                                           action: #selector(isEdit))
     }
     
     @objc
     private func isEdit() {
         tableView.isEditing.toggle()
+        navigationItem.leftBarButtonItem?.title = tableView.isEditing ? "Done" : "Edit"
     }
 }
 

@@ -11,6 +11,7 @@ final class TrackDetailsViewController: UIViewController {
     
     var track: Track!
     
+    // MARK: Private properties
     private lazy var coverImage: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -25,8 +26,18 @@ final class TrackDetailsViewController: UIViewController {
         return label
     }()
     
+    
+    // MARK: Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+      commonInit()
+    }
+}
+
+// MARK: - Private methods
+extension TrackDetailsViewController {
+    
+    private func commonInit() {
         view.backgroundColor = .systemBackground
         setupConstraintsForImageView()
         setupConstraintsForTitleLabel()
