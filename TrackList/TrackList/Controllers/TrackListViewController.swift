@@ -21,9 +21,10 @@ final class TrackListViewController: UIViewController {
 }
 
 // MARK: - Private methods
-extension TrackListViewController {
+private extension TrackListViewController {
     
-    private func commonInit() {
+    func commonInit() {
+        setupNavBarAppearance()
         title = "Track List"
         navigationController?.navigationBar.prefersLargeTitles = true
         view.addSubview(tableView)
@@ -32,7 +33,7 @@ extension TrackListViewController {
         setupEditButton()
     }
     
-    private func makeTableView() -> UITableView {
+    func makeTableView() -> UITableView {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.dataSource = self
@@ -41,7 +42,7 @@ extension TrackListViewController {
         return tableView
     }
     
-    private func setupEditButton() {
+    func setupEditButton() {
         let title = tableView.isEditing ? "Done" : "Edit"
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: title,
                                                            style: .plain,
@@ -50,9 +51,25 @@ extension TrackListViewController {
     }
     
     @objc
-    private func isEdit() {
+    func isEdit() {
         tableView.isEditing.toggle()
         navigationItem.leftBarButtonItem?.title = tableView.isEditing ? "Done" : "Edit"
+    }
+    
+    func setupNavBarAppearance() {
+        let navBarAppearance = UINavigationBarAppearance()
+        navBarAppearance.backgroundColor = UIColor(
+            red: 21/255,
+            green: 101/255,
+            blue: 192/255,
+            alpha: 194/255
+        )
+        navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        
+        navigationController?.navigationBar.standardAppearance = navBarAppearance
+        navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
+        navigationController?.navigationBar.tintColor = .white
     }
 }
 
@@ -71,6 +88,7 @@ extension TrackListViewController: UITableViewDataSource {
         content.secondaryText = track.artist
         content.image = UIImage(named: track.title)
         content.imageProperties.cornerRadius = tableView.rowHeight / 2
+        cell.backgroundColor = UIColor(red: 248/255, green: 250/255, blue: 229/255, alpha: 1)
         cell.contentConfiguration = content
         return cell
     }
@@ -80,6 +98,7 @@ extension TrackListViewController: UITableViewDataSource {
 extension TrackListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         let currentTrack = trackList[indexPath.row]
         let detailsVC = TrackDetailsViewController()
         detailsVC.track = currentTrack
